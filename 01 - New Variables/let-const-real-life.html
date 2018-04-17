@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>let and const</title>
+</head>
+
+<body>
+
+<script>
+/******** VAR ********/
+var width = 100;
+console.log(width);
+// CAN BE REUSED WITHOUT ERROR - BAD PRACTICE
+var width = 200;
+console.log(width);
+// FUNCTION SCOPE - IF NOT IN FUNCTION THEY ARE GLOBAL
+function num(){
+    var number = 2;
+    console.log(number);
+}
+num();
+// WILL FAIL, OUTSIDE OF SCOPE
+//console.log(number);
+
+var age = 60;
+if(age > 12){
+    var dogYears = age * 7;
+    console.log(`You are ${dogYears} dog years old!`);
+}
+// ONLY FUNCTION SCOPED, LOOSE if STATEMENTS WILL 'LEAK' THE var
+console.log(`Dog years: ${dogYears}`);
+
+
+/******** LET ********/
+
+// CAN BE REASSIGNED BUT NOT REDECLARED
+let height = 200;
+console.log(`Height: ${height}`);
+height = 400;
+//let height = 300;
+console.log(`Height: ${height}`);
+
+// IT IS BLOCK SCOPED NOT JUST FUNCTION SCOPED - SAME AS CONST
+let otherAge = 80;
+if(otherAge > 12){
+    let otherDogYears = age * 7;
+    console.log(`You are ${otherDogYears} other dog years old!`);
+}
+// WILL CAUSE AN ERROR
+//console.log(`Other dog years: ${otherDogYears}`)
+
+
+/******** CONST ********/
+
+const key = "abc123";
+console.log(key);
+key = '456';
+console.log(key);
+
+</script>
+</body>
+
+</html>
