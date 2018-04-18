@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Let vs Const</title>
+
+</head>
+<body>
+
+
+<script>
+const key = 'abc123';
+let points = 50;
+let winner = false;
+
+// IF REDECLARED IN A BLOCK, let IS TREATED AS A NEW VARIABLE
+if(points > 40){
+    let winner = true;
+}
+console.log(winner);
+
+
+const person = {
+    name: 'wes',
+    age: 28
+}
+console.log(person);
+// const OBJECT CANNOT BE REASSIGNED
+//person = {name: 'wesley'};
+/*
+person = {
+    name: 'wesley',
+    age: 30
+};
+*/
+
+// const OBJECT VALUES/ATTRIBUTES CAN BE CHANGED
+person.name = 'wesley';
+console.log(person);
+
+
+
+</script>
+</body>
+</html>
