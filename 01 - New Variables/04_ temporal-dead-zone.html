@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Temporal Dead Zone</title>
+</head>
+
+<body>
+    <h1>Check the console</h1>
+    <a href="05_var_dead.html">Go to Is Var Dead?</a>
+<script>
+
+// var CAN ACCESS AS THEY ARE DEFINES, BUT NOT THE VALUE = undefined
+console.log(pizza);
+var pizza = 'Deep Dish';
+console.log(pizza);
+
+// let/const CANNOT BE ACCESSEDUNTIL DECLARED
+console.log(topping);
+let topping = 'Cheese';
+console.log(topping);
+
+</script>
+</body>
+</html>
