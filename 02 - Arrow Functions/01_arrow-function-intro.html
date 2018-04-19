@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Arrow Function Introduction</title>
+</head>
+<body>
+
+<script>
+// CONCISE
+// IMPLICIT RETURNS
+// DOESNT REBIND THIS WHEN USED IN ANOTHER FUNCTION - FOR CLICK EVENTS
+
+const names = ['wes', 'andrew', 'lux'];
+const fullNames = names.map(function(name){
+    return `${name} Dunne`;
+});
+console.log(fullNames);
+
+// TO WRITE IN ES6 ARROW FUNCTIONS YOU:
+// REPLACE FUNCTION WITH =>
+const fullNames2 = names.map((name) => {
+    return `${name} Dunne`;
+});
+console.log(fullNames2);
+
+// IF ONLY ONE PARAMETER - REMOVE PARENTHESIS (STYLEISTIC CHOICE)
+const fullNames3 = names.map(name => {
+    return `${name} Dunne`;
+});
+console.log(fullNames3);
+
+// IMPLICIT RETURN - DELETE THE RETURN KEYWORD AND THE CURLY BRACKETS = IMPLICIT RETURN
+const fullNames4 = names.map(name => `${name} Dunne`);
+console.log(fullNames4);
+
+// IMPLICIT RETURN - DELETE THE RETURN KEYWORD AND THE CURLY BRACKETS = IMPLICIT RETURN
+const fullNames5 = names.map(name => `${name} Dunne`);
+console.log(fullNames5);
+
+// ARROW FUNCTIONS ARE ANONYMOUS
+// NAMED FUNCTION
+function sayMyName(name){
+    alert(`Hello ${name}`);
+};
+// ARROW FUNCTION ATTACHED TO VARIABLE
+const sayMyName2 = (name) => {alert(`And Hello ${name}`)};
+// ALT LAYOUT
+const sayMyName3 = (name) => {
+    alert(`Oh and Hello ${name}`)
+};
+</script>
+</body>
+</html>
