@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>More Arrow Function Examples</title> 
+</head>
+<body>
+
+<script>
+
+const race = '100m dash';
+const winners = ['Andrew Dunne', 'Sean Freeman', 'Henri Tucan'];
+// WE ARE TRYING TO IMPLICITLY RETURN AN ARRAY BUT : IS MARKED AS AN ERROR
+//const win = winners.map((winner, i) => ({name: winner, race: race, place: i}));
+// WRAPPING IN A BRACKET () MAKES THE ARRAY IMPLICIT
+//const win = winners.map((winner, i) => ({name: winner, race: race, place: i + 1}));
+// IF THE KEY IS THE SAME AS A MAP WE CAN USE THE ONE WORD
+const win = winners.map((winner, i) => ({name: winner, race, place: i + 1}));
+
+console.table(win);
+
+const ages = [23,62,45,234,2,62,234,62,34];
+// STANDARD WAY - FILTER LOOKS FOR TRUE,
+// IF return age - alwyas true as age populated
+// BETTER TO USE true IN RETURNS 
+const old = ages.filter(age => {
+    if(age >= 60){
+        return true;
+    } 
+});
+console.log(old);
+// CAN COMPRESS DOWN TO THIS:
+const old1 = ages.filter(age => age >= 60);
+console.log(old1);
+</script>
+</body>
+</html>
