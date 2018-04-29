@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Template String Intro</title>
+</head>
+<body>
+    <h1>Check The Console</h1>
+    <a href="URL">TEXT</a>
+    <div class="person"></div>
+    <div class="dog"></div>
+
+
+<script>
+const personDiv = document.querySelector('.person');
+const dogDiv = document.querySelector('.dog');
+
+
+const person = {
+    name: 'Wes',
+    job: 'Web Developer',
+    city: 'Hamilton',
+    bio: 'Wes is a really cool guy that loves to teach web development!',
+};
+
+const dogs = [
+    {name: 'Snickers', age: 2},
+    {name: 'Hugo', age: 8},
+    {name: 'Sunny', age: 1}
+];
+
+const text = `
+<div class="person">
+    <h2>
+        ${person.name}
+        <span class="job">${person.job}</span>
+    </h2>
+    <p class="location">${person.city}</p>
+    <p class="bio">${person.bio}</p>
+</div>
+`;
+
+const dogMarkup = `
+    <ul class="dogs">
+        ${dogs.map(dog => `
+            <li>
+                ${dog.name} is ${dog.age * 7}  years old
+            </li>
+        `).join('')}
+    </ul>
+`;
+console.log(dogMarkup);
+
+personDiv.innerHTML = text;
+dogDiv.innerHTML = dogMarkup;
+//document.createElement
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Default Function Arguments</title> 
+</head>
+<body>
+<h1>Check the console</h1>
+<a href="05_when-not-to-use-arrow.html">When Not to Use Arrow Functions</a>
+
+<script>
+// STANDARD JavaScript WAY
+console.log("Old JavaScript way: ");
+function calculateBill(total, tax, tip){
+    if(tax === undefined){
+        tax = 0.13;
+    }
+    if(tip === undefined){
+        tip = 0.15;
+    }
+    // ALT METHOD
+    /*
+    tip = tip || .15;
+    tax = tax || .13;
+    */
+    return total + (total * tax) + (total * tip);
+}
+const totalBill = calculateBill(100);
+console.log(totalBill);
+
+
+console.log("ES6 Defaults: ");
+function calculateBill2(total, tax = .13, tip = .15){
+    return total + (total * tax) + (total * tip);
+
+}
+const totalBill2 = calculateBill(100, undefined, .5);
+console.log(totalBill2);
+
+</script>
+
+</body>
+</html>

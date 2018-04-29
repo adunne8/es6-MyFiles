@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>When Not to Use Arrow Functions</title> 
+</head>
+<body>
+<style>
+    button{font-size: 100px}
+    .on{background: #ffc600}
+    .push{color: red}
+</style>
+    <a href="06_arrow-function-exercises.html">Arrow Function Exercises</a>
+    <button id="pushy" class="push">Push Me</button>
+
+
+<script>
+const button = document.querySelector('#pushy');
+// WONT WORK - this BOUND TO WINDOW, NOT THE EVENT
+button.addEventListener('click', () => {
+    this.classList.toggle('on');
+});
+/***********************************************************/
+
+// WONT WORK - this IS window AGAIN, SCORE NOT UPDATING
+const person = {
+    points: 23,
+    score: () => {
+        this.points++;
+    }
+};
+/***********************************************************/
+
+class Car{
+    constructor(make, color){
+        this.make = make;
+        this.color = color;
+    }
+}
+
+const beemer = new Car('bmw', 'blue');
+const subie = new Car('Subaru', 'white');
+// NEED this FOR THE VARIABLES BELOW - USE REGULAR FUCTION
+Car.prototype.summarize = () => {
+    return `This car is a ${this.make} in the color ${this.color}`;
+};
+/***********************************************************/
+
+// arguments IS AN ARRAY-ISH VALUE OF EVERYTHING PASSED IN
+
+const orderChildren = () => {
+    const children = Array.from(arguments);
+    return children.map((child, i) => {
+        return `${child} was child #${i + 1}`;
+    });
+    console.log(arguments);
+};
+// WORKING CODE
+/*
+const orderChildren = function() {
+    const children = Array.from(arguments);
+    return children.map((child, i) => {
+        return `${child} was child #${i + 1}`;
+    });
+    console.log(arguments);
+};
+*/
+
+
+
+</script>
+
+</body>
+</html>

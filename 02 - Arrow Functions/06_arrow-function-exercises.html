@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arrow Function Exercises</title>
+</head>
+<body>
+    <h1>Check the console</h1>
+    <a href="../03 - Template Strings/01_template_string_intro.html">Arrow Function Exercises</a>
+
+
+    <ul>
+        <li data-time="5:17">Flexbox Video</li>
+        <li data-time="8:22">Flexbox Video</li>
+        <li data-time="3:34">Redux Video</li>
+        <li data-time="5:23">Flexbox Video</li>
+        <li data-time="7:12">Flexbox Video</li>
+        <li data-time="7:24">Redux Video</li>
+        <li data-time="6:46">Flexbox Video</li>
+        <li data-time="4:45">Flexbox Video</li>
+        <li data-time="4:40">Flexbox Video</li>
+        <li data-time="7:58">Redux Video</li>
+        <li data-time="11:51">Flexbox Video</li>
+        <li data-time="9:13">Flexbox Video</li>
+        <li data-time="5:50">Flexbox Video</li>
+        <li data-time="5:52">Redux Video</li>
+        <li data-time="5:49">Flexbox Video</li>
+        <li data-time="8:57">Flexbox Video</li>
+        <li data-time="11:29">Flexbox Video</li>
+        <li data-time="3:07">Flexbox Video</li>
+        <li data-time="5:59">Redux Video</li>
+        <li data-time="3:31">Flexbox Video</li>
+      </ul>
+      
+<script>
+
+console.log("Exercise 1: ");
+// 1. SELECT ALL THE LIST ITEMS ON THE PAGE AND CONVERT FROM nodeList TO Array
+const items = Array.from(document.querySelectorAll('[data-time]'));
+
+// 2. FILTER FOR ONLY THE ELEMENTS THAT CONTAIN THE WORD 'flexbox'
+// USING THE FILTER, AND INCLUDES ARRAY FUNCTIONS
+const filtered = items.filter(item => item.textContent.includes('Flexbox'));
+
+
+// MAP DOWN TO A LIST OF TIME STRINGS ONLY
+const mapped = filtered.map(item => item.dataset.time);
+
+
+// MAP TO AN ARRAY OF SECONDS
+const seconds = mapped.map(item => {
+    // SPLIT EACH INTO AN ARRAY OF TWO ITEMS 
+    const parts = item.split(':').map(part => parseFloat(part));
+    // RETURN BOTH PARTS AS TOTAL SECONDS
+    return ((parts[0] * 60 )) + (parts[1]);
+});
+
+
+// REDUCE TO GET TOTAL
+// REDUCE USES A ACCUMILATOR TO KEEP TRACK OF TOTAL AND THE INPUTS BEING LOOPED THROUGH
+const total = seconds.reduce((runningTotal, seconds) => runningTotal + seconds ,0);
+console.log(total);
+
+// 🔥 This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
+
+console.log("Exercise 2: ");
+
+// 1. Given this array: `[3,62,234,7,23,74,23,76,92]`, use the array filter method and an arrow function to create an array of the numbers greater than `70`
+const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
+
+const numberBig =  numbers.filter(number => number > 70);
+const numberLong = numbers.filter(number => number.toString().length > 2);
+
+console.log(numberBig);
+console.log(numberLong);
+
+
+</script>
+</body>
+</html>
