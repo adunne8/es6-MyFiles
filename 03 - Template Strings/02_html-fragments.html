@@ -8,15 +8,22 @@
 </head>
 <body>
     <h1>Check The Console</h1>
-    <a href="URL">TEXT</a>
-    <div class="person"></div>
-    <div class="dog"></div>
+    <a href="03_tagged-template-literals.html">Tagged Template Literals</a>
 
+    <h2>People - Template String Variables</h2>
+    <div class="person"></div>
+    <h2>Dog - Template and loops/arrow functions</h2>
+    <div class="dog"></div>
+    <h2>Song - Template if statement</h2>
+    <div class="song"></div>
+    <h2>Beer - Render function</h2>
+    <div class="beer"></div>
 
 <script>
 const personDiv = document.querySelector('.person');
 const dogDiv = document.querySelector('.dog');
-
+const songDiv = document.querySelector('.song');
+const beerDiv = document.querySelector('.beer');
 
 const person = {
     name: 'Wes',
@@ -24,15 +31,25 @@ const person = {
     city: 'Hamilton',
     bio: 'Wes is a really cool guy that loves to teach web development!',
 };
-
 const dogs = [
     {name: 'Snickers', age: 2},
     {name: 'Hugo', age: 8},
     {name: 'Sunny', age: 1}
 ];
+const song = {
+    name: 'Dying to live',
+    artist: 'Tupac'
+}
+const beer = {
+    name: 'Belgin Wit',
+    brewry: 'Steam Whistle Brewry',
+    keywords: ['pale', 'cliudy', 'spiced', 'crisp']
+}
 
+
+// SINGLE USE OF BACKTICKS FOR ENTIRE html STRING WITH VARIABLES
 const text = `
-<div class="person">
+<div class="person-item">
     <h2>
         ${person.name}
         <span class="job">${person.job}</span>
@@ -42,8 +59,9 @@ const text = `
 </div>
 `;
 
+// YOU CAN NEST TEMPLATE STRINGS AND USE FUNCTIONS AND LOOPS IN THE VARIABLE DECLARATIONS
 const dogMarkup = `
-    <ul class="dogs">
+    <ul class="dogs-item">
         ${dogs.map(dog => `
             <li>
                 ${dog.name} is ${dog.age * 7}  years old
@@ -51,10 +69,36 @@ const dogMarkup = `
         `).join('')}
     </ul>
 `;
-console.log(dogMarkup);
+
+// YOU CAN USE if STATEMENTS IN TEMPLATES
+const songMarkup = `
+    <div class="song-item">
+        <p>${song.name} - ${song.artist} - ${song.featuring ? `(Featuring ${song.featuring})`:`` }</p>
+        
+    </div>
+`;
+
+function renderKeywords(keywords){
+    return `
+        <ul>
+            ${keywords.map(keyword => `<li>${keyword}</li>`).join('')}
+        </ul>
+    `;
+}
+
+// CALLING FUNCTIONS IN TEMPLATE STRINGS
+const beerMarkup = `
+    <div class="beer-item">
+        <h2>${beer.name}</h2>
+        <p class="brewry">${beer.brewry}</p>
+        <p>${renderKeywords(beer.keywords)}</p>
+    </div>
+`;
 
 personDiv.innerHTML = text;
 dogDiv.innerHTML = dogMarkup;
+songDiv.innerHTML = songMarkup;
+beerDiv.innerHTML = beerMarkup;
 //document.createElement
 
 </script>

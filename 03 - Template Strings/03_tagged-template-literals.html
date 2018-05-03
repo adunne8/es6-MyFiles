@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tagged Template Literals</title>
+</head>
+<body>
+<style>
+    .value{
+        color: #ffc600;
+        border-bottom: 1px dashed black;
+    }
+</style>
+    <h1>Check The Console</h1>
+    <a href="04_tagged-template-examples.html">Tagged Template Examples</a>
+
+    <div class="template-string"></div>
+    <div class="template-function-string"></div>
+
+
+<script>
+const templateString = document.querySelector('.template-string');
+const functionString = document.querySelector('.template-function-string');
+
+// REST FUNCTION - [0] FOR THE  STRINGS and [1] FOR THE VALUES
+// STRING WILL ALWAYS HAVE ONE MORE ENTRY THAN VALUES, EVEN IF JUST ""
+function highlight(strings, ...values){
+    //debugger;
+    let str = '';
+    strings.forEach((string, i) => {
+        str += string + (`<span contenteditable class="value">${values[i] || ''}</span>`);// IF NO VALUE, USE ''
+    });
+    return str;
+}
+const name = 'Snickers';
+const age = 100;
+const gender = 'male';
+
+// TAGGING WITH A function NAME - RUNS FUNCTION WITH TEMPLATE STRING AND VALUES
+const sentence = `My dogs name is ${name} and he is ${age} years old`;
+const sentence2 = highlight`My dogs name is ${name} and he is ${age} years old`;
+
+templateString.innerHTML = sentence;
+functionString.innerHTML = sentence2;
+
+
+</script>
+</body>
+</html>

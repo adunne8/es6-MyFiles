@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New String Methods</title>
+</head>
+<body>
+    <h1>Check The Console</h1>
+    <a href="URL">TEXT</a>
+
+
+<script>
+const course        = 'RFB2';
+const flightNumber  = '20-AC2018-jz';
+const accountNumber = '825242631RT0001';
+
+const make  = 'BMW';
+const model = 'x5';
+const color = 'Royal Blue';
+
+
+function logger(variable, func, parameter, index){
+    
+    if(func === 'startsWith'){
+        console.log(`${variable} ${func} ${parameter} from index ${index}:, ${variable.startsWith(parameter, index)}`);
+    }
+    else if(func === 'endsWith'){
+        console.log(`${variable} ${func} ${parameter} in the first  ${index} number of chars:, ${variable.endsWith(parameter, index)}`);
+    }
+    else if(func === 'includes'){
+        console.log(`${variable} ${func} ${parameter} from index ${index}:, ${variable.includes(parameter, index)}`);
+    }
+    else if(func === 'repeat'){
+        console.log(`${variable} ${func} ${parameter} from index ${index}:, ${variable.repeat(index)}`);
+    }
+    
+}
+
+
+
+logger(make, 'startsWith', 'b');
+logger(make, 'startsWith', 'B');
+logger(flightNumber, 'startsWith', '20-');
+logger(flightNumber, 'startsWith', 'AC', 3);
+logger(flightNumber, 'endsWith', 'jz');
+logger(accountNumber, 'endsWith', 'RT', 11);
+logger(flightNumber, 'includes', 'AC');
+logger(flightNumber, 'repeat', undefined, 10);
+logger(flightNumber, 'repeat', undefined, 100);
+
+function leftPad(str, length = 20){
+    return `-> ${' '.repeat(length - str.length)}${str}`;
+}
+
+console.log(leftPad(make));
+console.log(leftPad(model));
+console.log(leftPad(color));
+
+console.log(`${'X' * 5}`.repeat(10) + ' Batman!');
+
+</script>
+</body>
+</html>
