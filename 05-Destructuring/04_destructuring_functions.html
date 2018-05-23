@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TITLE</title>
+</head>
+<body>
+    <h1>Check The Console</h1>
+    <a href="../06-_iterables_and_looping/01_the_for_or_loop.html">For of Loop</a>
+
+
+<script>
+
+function convertCurrency(amount){
+    const converted = {
+        USD: amount * 0.76,
+        GPB: amount * .53,
+        AUD: amount * 1.01,
+        MEX: amount * 13.30
+    };
+    return converted;
+}
+
+// const hundo = convertCurrency(100);
+// console.log(hundo);
+
+const {USD, MEX, AUD} = convertCurrency(100);
+console.log(USD, MEX, AUD);
+
+function tipCalculator({total = 100, tip = 0.15, tax = .2} = {}){
+    return total + (tip * total) + (tax * total);
+}
+
+const bill = tipCalculator({total: 200, tip: .2, tax: .2});
+console.log(bill);
+
+const bill2 = tipCalculator();
+console.log(bill2);
+
+
+</script>
+</body>
+</html>

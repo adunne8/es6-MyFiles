@@ -3,14 +3,62 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Destructuring Objects</title>
 </head>
 <body>
     <h1>Check The Console</h1>
-    <a href="URL">TEXT</a>
+    <a href="02_destructuring_arrays.html">Destructuring Arrays</a>
 
 <script>
+const person = {
+    first: 'Andrew',
+    last: 'Dunne',
+    country: 'Ireland',
+    city: 'Dublin',
+    twitter: '@twtrlessandrew'
+};
+
+const andrew = {
+    first: 'Andrew',
+    last: 'Dunne',
+    links: {
+        social: {
+            twitter: 'https://twitter.com/TwtrlessAndrew',
+            facebook: 'https://facebook.com'
+        },
+        web: {
+            blog: 'https://google.com'
+        }
+    }
+}
+
+// EXTRACT DATA FROM ARRAYS OBJECTS< MAPS< SETS
+// INTO THEIR OWN VARIABLE, MUST BE SAME NAME
+
+// OLD
+const firstN = person.first;
+const lastN = person.last;
+
+// { } DESTRUCTURING SYNTAX
+const {first, last} = person;
+
+console.log(first);
+console.log(last);
+
+// DEEPLY NESTED
+// OLD
+const twitterL = andrew.links.social.twitter;
+const facebookL = andrew.links.social.facebook;
+
+// DESTRUCTURING - CAN RENAME VARIABLES
+const {twitter: tweet, facebook: fb} = andrew.links.social;
+
+const settings = {width: 300, color: 'black'} //height, font-size
+
+const {width = 100, height = 100, color = 'blue', fontSize = 25} = settings;
+
+const {w: width2 = 400, h: height2 = 500} = {w: 800};
 
 
 </script>
