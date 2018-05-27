@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TITLE</title>
+</head>
+<body>
+    <h1>Check The Console</h1>
+    <a href="../07-array-of-array-improvements/01_array_from_and_array_of.html">Array From and To</a>
+
+
+<script>
+
+const apple = {
+    color: 'Red',
+    size: 'Medium',
+    weight: 50,
+    sugar: 10
+}
+
+for (const prop of Object.keys(apple)){
+    const value = apple[prop]; 
+    
+    console.log(prop, value);
+    
+}
+
+for (const prop in apple){
+    const value = apple[prop];
+    console.log(prop, value);
+}
+
+</script>
+</body>
+</html>
