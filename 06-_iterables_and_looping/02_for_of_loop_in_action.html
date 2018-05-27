@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>For Of Loop in action</title>
+</head>
+
+<body>
+    <h1>Check The Console</h1>
+    <a href="URL">TEXT</a>
+    <p>Hi im p 1</p>
+    <p>Hi im p 2</p>
+    <p>Hi im p 3</p>
+    <p>Hi im p 4</p>
+    <p>Hi im p 5</p>
+    <p>Hi im p 6</p>
+
+<script>
+
+
+const cuts = ['Chunk', 'Brisket', 'Shank', 'Short Rib'];
+
+for (const [i, cut] of cuts.entries()){
+    console.log(`${cut} is the ${i + 1} item`);
+}
+
+
+function addUpNumbers(){
+    total = 0;
+
+    console.log(arguments);
+    console.log(arguments.length);
+
+
+    for(num of arguments){
+        total +=num;
+    }
+    console.log(`Total: ${total}`)
+    return total;
+
+}
+
+addUpNumbers(10,23,52,34,12,13,123);
+
+const name = "Andrew Dunne";
+for (const c of name){
+    console.log(c);
+}
+
+
+const para = document.querySelectorAll('p');
+for (const pp of para){
+    console.log(pp);
+    pp.addEventListener('click', function(){
+        console.log(this.textContent);
+    });
+}
+
+
+</script>
+
+</html>

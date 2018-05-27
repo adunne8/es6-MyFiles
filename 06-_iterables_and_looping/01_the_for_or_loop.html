@@ -8,10 +8,40 @@
 </head>
 <body>
     <h1>Check The Console</h1>
-    <a href="URL">TEXT</a>
+    <a href="02_for_of_loop_in_action.html">For of Loop in action</a>
 
 
 <script>
+
+const cuts = ['Chunk', 'Brisket', 'Shank', 'Short Rib'];
+Array.prototype.randomIndex = function(){
+    const len = this.length;
+    let j = Math.floor(Math.random() * len);
+
+    return this[j] + ", index:  " + j;
+}
+for (let i = 0; i < cuts.length; i++){
+    console.log(cuts[i]);
+}
+
+// CANNOT SKIP OR ABORT THE LOOP - CANT USE break, continue IN ARROW
+cuts.forEach((cut) => console.log(cut));
+
+// PICKS UP EVERYTHING ADDED, INCLUDING PROPERTIES, PROTOTYPES ETC
+for (const cut in cuts){
+    console.log(cuts[cut]);
+};
+
+// IGNORES PROTOTYPE, CAN BREAK, CONTINUE
+for (const cut of cuts){
+    console.log(cut);
+    if(cut === 'Brisket') break;
+}
+
+
+
+
+
 
 </script>
 </body>
