@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spread intro</title>
+</head>
+<body>
+    <h1>Check The Console</h1>
+    <a href="URL">TEXT</a>
+
+
+<script>
+
+const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
+const speciality = ['Meatzza', 'Spicy Mama', 'Margherita'];
+const pizzas = featured.concat(speciality);
+const pizzas2 = [...featured, 'Vegetarian', ...speciality];
+
+console.log(pizzas);
+console.log(pizzas2);
+
+const deepDish = {
+    pizzaName: 'Deep Dish',
+    size: 'Medium',
+    ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+};
+
+const deepDishPizza = [...deepDish];
+
+
+
+</script>
+</body>
+</html>
