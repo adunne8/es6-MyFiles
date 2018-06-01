@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spread Exercise</title>
+
+    <style>
+        body{
+            background-color: #fbd416;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .hoverzoom{
+            margin:100px auto;
+            text-align: center;
+            color: white;
+            font-size: 72px;
+            text-shadow: 2px 2px #666;
+            transition: 1s all;
+        }
+        .hoverzoom > span{
+            display: inline-block;
+            transition: .2s all;
+        }
+        .hoverzoom > span:hover{
+            font-size: 2em;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 class="hoverzoom">Spreads!</h1>
+    <a href="URL">TEXT</a>
+
+
+
+<script>
+
+const zoomText = document.querySelector('.hoverzoom');
+console.log(zoomText);
+
+const zoomLetters = [...zoomText.textContent];
+console.log(zoomLetters);
+
+splitLetters(zoomLetters);
+
+function splitLetters(letterArray){
+    zoomText.textContent = "";
+
+    for (let i = 0; i < letterArray.length; i++){
+        zoomText.innerHTML += `<span>${letterArray[i]}</span>`;
+    }
+
+}
+
+
+
+</script>
+</body>
+</html>
