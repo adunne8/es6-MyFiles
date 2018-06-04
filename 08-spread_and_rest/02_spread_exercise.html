@@ -24,24 +24,24 @@
             transition: .2s all;
         }
         .hoverzoom > span:hover{
-            font-size: 2em;
+            /*font-size: 2em;*/
+            transform: rotate(15deg) scale(1.8);
         }
     </style>
 
 </head>
 <body>
     <h1 class="hoverzoom">Spreads!</h1>
-    <a href="URL">TEXT</a>
+    <a href="03_more_spread_examples.html">More Spread Examples</a>
 
 
 
 <script>
 
+/*
 const zoomText = document.querySelector('.hoverzoom');
-console.log(zoomText);
 
 const zoomLetters = [...zoomText.textContent];
-console.log(zoomLetters);
 
 splitLetters(zoomLetters);
 
@@ -52,6 +52,17 @@ function splitLetters(letterArray){
         zoomText.innerHTML += `<span>${letterArray[i]}</span>`;
     }
 
+}
+
+*/
+
+const heading = document.querySelector('.hoverzoom');
+heading.innerHTML = sparanWrap(heading.textContent);
+
+
+
+function sparanWrap(word){
+    return [...word].map(letter => `<span>${letter}</span>`).join('');
 }
 
 

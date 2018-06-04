@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spread Into Function</title>
+</head>
+<body>
+    <h1>Check The Console</h1>
+    <a href="05_rest_parm_in_functions_and_destructuring.html">Rest Parm in functions and destructuring</a>
+
+
+<script>
+
+const inventors = ['Einstein', 'Newton', 'Galileo'];
+const newInventors = ['Musk', 'Jobs'];
+inventors.push(...newInventors);
+
+console.log(inventors);
+
+const name = ['wes', 'bos'];
+
+
+function sayHi(first, last){
+    alert(`Hey there ${first} ${last}`);
+}
+
+sayHi(...name);
+
+
+</script>
+</body>
+</html>
