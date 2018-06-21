@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Promises</title>
+</head>
+<body>
+    <h1>Check The Console</h1>
+    <a href="02_making_promises.html">Making Promises</a>
+
+
+<script>
+
+// OFTUEN USED FOR JSON AND API DATA
+// USES fetch
+
+console.log('Getting Posts');
+// DOESNT STORE THE DATA - BUT A PROMISE - WLL INFORM WHEN COMPLETED
+const postsPromise = fetch('http://wesbos.com/wp-json/wp/v/posts');
+
+// SIMILAR TO .on('click') - CALLBACK
+postsPromise
+    // NEED TO CONVERT RETURNED DATA TO JSON FORMAT
+    .then(data => data.json()
+    // DO SOMETHING WITH THE DATA
+    .then(data => console.log(data))
+    // DO SOMETHING IF THE RETURN FAILS
+    .catch((err) => console.error(err))
+);
+
+
+
+console.log('Done!');
+console.log(postsPromise);
+
+
+
+</script>
+</body>
+</html>

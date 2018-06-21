@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chaining and Flow Control</title>
+</head>
+<body>
+    <h1>Check The Console</h1>
+    <a href="URL">TEXT</a>
+
+
+<script>
+
+  const posts = [
+    { title: 'I love JavaScript', author: 'Wes Bos', id: 1 },
+    { title: 'CSS!', author: 'Chris Coyier', id: 2 },
+    { title: 'Dev tools tricks', author: 'Addy Osmani', id: 3 },
+  ];
+
+  const authors = [
+    { name: 'Wes Bos', twitter: '@wesbos', bio: 'Canadian Developer' },
+    { name: 'Chris Coyier', twitter: '@chriscoyier', bio: 'CSS Tricks and CodePen' },
+    { name: 'Addy Osmani', twitter: '@addyosmani', bio: 'Googler' },
+  ];
+
+  function getPostById(id){
+      // CREATE A NEW PROMISE
+      return new Promise((resolve, reject) => {
+          // SIMULATE A DELAY TO DATABASE
+          setTimeout(() => {
+            // FIND THE POST
+            const post = posts.find(post => post.id === id);
+            
+            // IF FOUND
+            if(post){
+                resolve(post);
+            }
+            // ELSE IF NOT FOUND
+            else{
+                reject(Error(`No Post Found for post id: ${id}`));
+            }
+        }, 500)
+
+      });
+
+  }
+
+
+function hydrateAuthor(post){
+    // CREATE NEW PROMISE
+    return new Promise((resolve, reject) => {
+        //console.log(person);
+        
+        // FIND THE AUTHOR
+        const authorDetails = authors.find( person => person.name === post.author);
+        // RETURN AUTHOR DETAILS
+        if(authorDetails){
+            post.author = authorDetails;
+            resolve(post);
+        }
+        // OR REJECT IF NOT FOUND
+        else{
+            reject(Error('Author not found'));
+        }
+    });
+}
+
+  getPostById(2)
+    .then(post => {
+        //console.log(post);
+        return hydrateAuthor(post);
+    })
+    .then(post => {
+        console.log(post);
+    })
+    .catch(err => {
+        console.error(err);
+    });
+
+
+/*
+getPostById(5)
+    .then(post => {
+        console.log(post);
+    });
+*/
+</script>
+</body>
+</html>

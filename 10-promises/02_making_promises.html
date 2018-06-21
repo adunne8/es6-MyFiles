@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Making Promises</title>
+</head>
+<body>
+    <h1>Check The Console</h1>
+    <a href="03_chaining_and_flow_control.html">Chaining and Flow Control</a>
+
+
+<script>
+
+// PROMISE(Promise finishes, or rejects itself - data malformed - data error)
+const p = new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+        resolve('Wes is cool');
+    }, 1000)
+    setTimeout(() => {
+        reject(Error('Wes is not cool'));
+    }, 100)
+    
+});
+
+// DONT WANT TO STOP JAVASCRIPT RUNNING, JUST RUN THIS ONCE FINISHED
+p   
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => {
+        console.error(err);
+    })
+
+
+
+</script>
+</body>
+</html>
